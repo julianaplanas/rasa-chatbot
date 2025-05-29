@@ -1,8 +1,9 @@
 flows:
-  transfer_money:
-    description: Help users send money to friends and family.
+  write_birthday_message:
+    description: Help users write a happy birthday message to a friend or family member.
     steps:
-      - collect: recipient
-      - collect: amount
-        description: the number of US dollars to send
-      - action: utter_transfer_complete
+      - collect: recipient_name
+        description: the name of the person to send the birthday message to
+      - collect: birthday_date
+        description: the date of the person's birthday
+      - action: utter_birthday_message

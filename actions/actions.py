@@ -21,3 +21,24 @@ class ActionCheckSufficientFunds(Action):
         transfer_amount = tracker.get_slot("amount")
         has_sufficient_funds = transfer_amount <= balance
         return [SlotSet("has_sufficient_funds", has_sufficient_funds)]
+
+
+class ActionWriteBirthdayMessage(Action):
+    def name(self) -> Text:
+        return "action_write_birthday_message"
+
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
+        recipient_name = tracker.get_slot("recipient_name")
+        birthday_date = tracker.get_slot("birthday_date")
+
+        # Simulate writing a birthday message
+        dispatcher.utter_message(
+            text=f"Happy Birthday, {recipient_name}! 🎉 Have a wonderful day!"
+        )
+
+        return []

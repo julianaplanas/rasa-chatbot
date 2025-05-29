@@ -1,24 +1,24 @@
 version: "3.1"
 
 slots:
-  recipient:
+  recipient_name:
     type: text
     mappings:
       - type: from_llm
-  amount:
-    type: float
+  birthday_date:
+    type: text
     mappings:
       - type: from_llm
 
 responses:
-  utter_ask_recipient:
-    - text: "Who would you like to send money to?"
+  utter_ask_recipient_name:
+    - text: "What is the name of the person you'd like to send a birthday message to?"
 
-  utter_ask_amount:
-    - text: "How much money would you like to send?"
+  utter_ask_birthday_date:
+    - text: "What is the date of their birthday?"
 
-  utter_transfer_complete:
-    - text: "All done. {amount} has been sent to {recipient}."
+  utter_birthday_message:
+    - text: "Happy Birthday, {recipient_name}! 🎉 Have a wonderful day!"
 
   utter_free_chitchat_response:
     - text: "placeholder"
@@ -26,7 +26,7 @@ responses:
         rephrase: True
         rephrase_prompt: |
           The following is a conversation with an AI assistant built with Rasa.
-          The assistant can help the user transfer money.
+          The assistant can help the user write a birthday message.
           The assistant is helpful, creative, clever, and very friendly.
           The user is making small talk, and the assistant should respond, keeping things light.
           Context / previous conversation with the user:
