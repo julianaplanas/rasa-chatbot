@@ -42,3 +42,25 @@ class ActionWriteBirthdayMessage(Action):
         )
 
         return []
+
+
+class ActionScheduleAppointment(Action):
+    def name(self) -> Text:
+        return "action_schedule_appointment"
+
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
+        patient_name = tracker.get_slot("patient_name")
+        appointment_date = tracker.get_slot("appointment_date")
+        doctor_specialty = tracker.get_slot("doctor_specialty")
+
+        # Simulate scheduling logic
+        dispatcher.utter_message(
+            text=f"Your appointment with a {doctor_specialty} has been scheduled for {appointment_date}, {patient_name}."
+        )
+
+        return []

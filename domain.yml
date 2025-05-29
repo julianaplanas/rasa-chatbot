@@ -1,35 +1,28 @@
 version: "3.1"
 
 slots:
-  recipient_name:
+  patient_name:
     type: text
     mappings:
       - type: from_llm
-  birthday_date:
+  appointment_date:
+    type: text
+    mappings:
+      - type: from_llm
+  doctor_specialty:
     type: text
     mappings:
       - type: from_llm
 
 responses:
-  utter_ask_recipient_name:
-    - text: "What is the name of the person you'd like to send a birthday message to?"
+  utter_ask_patient_name:
+    - text: "What is the patient's name?"
 
-  utter_ask_birthday_date:
-    - text: "What is the date of their birthday?"
+  utter_ask_appointment_date:
+    - text: "What date would you like to schedule the appointment for?"
 
-  utter_birthday_message:
-    - text: "Happy Birthday, {recipient_name}! 🎉 Have a wonderful day!"
+  utter_ask_doctor_specialty:
+    - text: "What type of doctor do you need to see? (e.g., cardiologist, dermatologist)"
 
-  utter_free_chitchat_response:
-    - text: "placeholder"
-      metadata:
-        rephrase: True
-        rephrase_prompt: |
-          The following is a conversation with an AI assistant built with Rasa.
-          The assistant can help the user write a birthday message.
-          The assistant is helpful, creative, clever, and very friendly.
-          The user is making small talk, and the assistant should respond, keeping things light.
-          Context / previous conversation with the user:
-          {{history}}
-          {{current_input}}
-          Suggested AI Response:
+  utter_appointment_scheduled:
+    - text: "Your appointment with a {doctor_specialty} has been scheduled for {appointment_date}, {patient_name}."

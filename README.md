@@ -1,12 +1,28 @@
-# Birthday Message Bot
+# Medical Appointment Scheduler
+
+## Context
+This virtual assistant is designed for use in a healthcare organization that provides medical services to patients. The assistant helps streamline the process of scheduling appointments, ensuring patients can easily book consultations with specialists.
 
 ## Overview
-This project is a conversational bot designed to help users write a happy birthday message to a friend or family member. The bot interacts with users to collect the recipient's name and the date of their birthday and then generates a birthday message.
+This project is a conversational bot designed to help users schedule medical appointments. The bot interacts with users to collect the patient's name, the desired appointment date and the doctor's specialty and then confirms the appointment.
 
 ## Features
-- Collects the recipient's name.
-- Collects the date of the recipient's birthday.
-- Generates a personalized happy birthday message.
+- Collects the patient's name.
+- Collects the desired date for the appointment.
+- Collects the doctor's specialty.
+- Confirms the scheduled appointment.
+
+## Flows
+### 1. Schedule Medical Appointment
+**Description**: The assistant helps users schedule a medical appointment by collecting the patient's name, the desired appointment date and the doctor's specialty.
+**Dialog Flow**:
+1. The bot asks: "What is the patient's name?"
+2. The user provides the name.
+3. The bot asks: "What date would you like to schedule the appointment for?"
+4. The user provides the date.
+5. The bot asks: "What type of doctor do you need to see? (e.g., cardiologist, dermatologist)"
+6. The user provides the specialty.
+7. The bot responds: "Your appointment with a [Specialty] has been scheduled for [Date], [Name]."
 
 ## How to Use
 
@@ -32,15 +48,8 @@ rasa inspect
 
 ## Project Structure
 - **`config.yml`**: Configuration for the bot's pipeline and policies.
-- **`domain.yml`**: Defines intents, slots, responses, and actions.
-- **`data/flows.yml`**: Contains the conversational flow for writing a birthday message.
-- **`actions/actions.py`**: Custom actions for generating the birthday message.
+- **`domain.yml`**: Defines intents, slots, responses and actions.
+- **`data/flows.yml`**: Contains the conversational flow for scheduling medical appointments.
+- **`actions/actions.py`**: Custom actions for scheduling the appointment.
 
-## Example Interaction
-1. The bot asks: "What is the name of the person you'd like to send a birthday message to?"
-2. The user provides the name.
-3. The bot asks: "What is the date of their birthday?"
-4. The user provides the date.
-5. The bot responds: "Happy Birthday, [Name]! 🎉 Have a wonderful day!"
-
-Enjoy using the Birthday Message Bot!
+Enjoy using the Medical Appointment Scheduler!
